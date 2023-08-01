@@ -1,7 +1,8 @@
+import { ProductPage } from "./pages/ProductPage";
 import "./styles/global.css";
 
 function App() {
-  return <h1>Hello World</h1>;
+  return <ProductPage />;
 }
 
 export default App;
