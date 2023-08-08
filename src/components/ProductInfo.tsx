@@ -11,8 +11,9 @@ interface FetchedProduct {
   company: string;
   title: string;
   desc: string;
-  price: number;
-  discount: number;
+  price: string;
+  firstPrice: string;
+  discount: string;
   images: {
     src: string;
   }[];
@@ -41,24 +42,24 @@ export function ProductInfo() {
       />
       <div className="py-4 px-5 flex flex-col gap-3">
         <span className="text-orange-400 font-bold text-[14px] ">
-          SNEAKER COMPANY
+          {product && product.company}
         </span>
         <h1 className="font-bold text-[28px] leading-tight">
-          Fall Limited Edition Sneakers
+          {product && product.title}
         </h1>
-        <p className="text-gray-700">
-          These low-profile sneakers are your perfect casual wear companion.
-          Featuring a durable rubber outer sole, they'll withstand everything
-          the weather can offer.
-        </p>
+        <p className="text-gray-700">{product && product.desc}</p>
         <div className="flex items-center w-full justify-between">
           <div className="flex items-center gap-4">
-            <span className="font-bold text-[28px]">$125.00</span>
+            <span className="font-bold text-[28px]">
+              {product && product.price}
+            </span>
             <span className="bg-orange-100 py-[1px] px-[6px] text-orange-500 font-bold rounded-md">
-              50%
+              {product && product.discount}
             </span>
           </div>
-          <span className="font-bold text-gray-300 line-through">$250.00</span>
+          <span className="font-bold text-gray-300 line-through">
+            {product && product.firstPrice}
+          </span>
         </div>
         <div className="flex w-full p-3 justify-between bg-gray-100 rounded-md">
           <button>
