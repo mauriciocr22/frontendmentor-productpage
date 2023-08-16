@@ -1,7 +1,7 @@
 import logoImg from "../assets/logo.svg";
 import menuIcon from "../assets/icon-menu.svg";
-import cartIcon from "../assets/icon-cart.svg";
 import imageProfile from "../assets/image-avatar.png";
+import { CartPopover } from "./CartPopover";
 
 export function Header() {
   return (
@@ -13,9 +13,7 @@ export function Header() {
         <img src={logoImg} alt="" />
       </div>
       <div className="flex gap-4">
-        <button>
-          <img src={cartIcon} alt="" />
-        </button>
+        <CartPopover />
         <img className="w-8" src={imageProfile} alt="" />
       </div>
     </header>
