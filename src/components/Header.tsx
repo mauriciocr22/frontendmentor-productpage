@@ -12,7 +12,7 @@ export function Header() {
         </a>
         <img src={logoImg} alt="" />
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 items-center">
         <CartPopover />
         <img className="w-8" src={imageProfile} alt="" />
       </div>

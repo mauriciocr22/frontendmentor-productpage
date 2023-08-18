@@ -1,30 +1,30 @@
+import { useState } from "react";
 import cartIcon from "../assets/icon-cart.svg";
 
 export function CartPopover() {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleCartState = () => {
+    setIsActive(!isActive);
+  };
+
+  console.log(isActive);
+
   return (
-    <div className="flex items-center">
-      <label htmlFor="cartModal">
-        <img src={cartIcon} />
-      </label>
-      <input
-        type="checkbox"
-        name="cartModal"
-        id="cartModal"
-        className="peer fixed appearance-none opacity-0"
-      />
-      <label
-        htmlFor="cartModal"
-        className="pointer-events-none invisible fixed inset-0 flex justify-center overflow-hidden overscroll-contain opacity-0 
-                  transition-all duration-200 ease-in-out peer-checked:pointer-events-auto peer-checked:visible peer-checked:opacity-100 
-                  peer-checked:[&>*]:translate-y-0 peer-checked:[&>*:scale-100] mt-[90px] z-10"
-      >
-        <div className="w-[95%] bg-white h-[16rem] rounded-lg shadow-2xl">
-          <h1 className="font-bold p-4">Cart</h1>
-          <div className="flex h-4/5 w-full border-t-[1px] items-center justify-center font-bold text-gray-400 ">
-            Your cart is empty.
+    <div className="md:relative inline-block h-[20px]">
+      <button onClick={handleCartState}>
+        <img src={cartIcon} alt="" />
+      </button>
+      {isActive && (
+        <div className="flex absolute w-[95vw] h-[240px] left-1/2 -translate-x-1/2 top-[90px] my-0 mx-auto z-10 bg-white rounded-lg flex-col">
+          <h1 className="p-4 font-bold">Cart</h1>
+          <div className="flex border-t-[1px] border-gray-300 w-full h-full items-center justify-center">
+            <span className="font-bold text-gray-400 text-sm">
+              Your cart is empty.
+            </span>
           </div>
         </div>
-      </label>
+      )}
     </div>
   );
 }
