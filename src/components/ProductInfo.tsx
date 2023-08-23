@@ -24,6 +24,17 @@ interface FetchedProduct {
 export function ProductInfo() {
   const [product, setProduct] = useState<FetchedProduct | undefined>();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [count, setCount] = useState(0);
+
+  const subCount = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+
+  const plusCount = () => {
+    setCount(count + 1);
+  };
 
   const previousSlide = () =>
     setCurrentSlide((currentSlide) =>
@@ -103,11 +114,11 @@ export function ProductInfo() {
           </span>
         </div>
         <div className="flex w-full p-3 justify-between bg-gray-100 rounded-md">
-          <button>
+          <button onClick={subCount}>
             <img src={minusIcon} alt="" />
           </button>
-          <span className="font-bold">0</span>
-          <button>
+          <span className="font-bold">{count}</span>
+          <button onClick={plusCount}>
             <img src={plusIcon} alt="" />
           </button>
         </div>
